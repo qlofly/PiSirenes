@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename= 'style.css') }}" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename= 'images/logo.svg') }}" />
+
+<title>PiSirenes</title>
+
+</head>
+<body>
+
+
+<div class="tab" >
+  <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'netview')">Network viewer</button>
+  <button class="tablinks" onclick="openCity(event, 'ap')">Access point</button>
+  <button class="tablinks" onclick="openCity(event, 'nmap')">Nmap</button>
+  <button class="tablinks" onclick="openCity(event, 'settings')">Settings</button>
+</div>
+
+<div id="Home" class="tabcontent">
+  <h2 class="time" id="tmnw">{{timenow}}</h2><img src="{{ url_for('static', filename= 'images/git-link.gif') }}" class="qr">
+  <h3 class="con-usrs">Connected users: 1</h3>
+  <h3 class="disk">Free disk space:<br>12.4GB</h3>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+   setInterval(function(){   
+            $('h2').load('#h2');
+        }, 1000);
+</script>
+
+
+
+
+<div id="netview" class="tabcontent">
+    <h3>No networks found</h3><br><br>
+    <button class="button">Search</button>
+</div>
+
+<div id="ap" class="tabcontent">
+    <h3>Access point creation</h3>
+    <input type="text" placeholder="Network name" class="apset"><br>
+    <input type="password" placeholder="Password" class="apset"><button class="apbut">Generate</button><br>
+    <input type="text" placeholder="MAC address" class="apset"><button class="apbut">Generate</button><br>
+    <p class="app">Enable traffic sniffer 
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider"> </span>
+      </label></p>
+</div>
+
+<div id="nmap" class="tabcontent">
+    <h3>Nmap</h3>
+    <p>Nmap</p>
+  </div>
+
+  <div id="settings" class="tabcontent">
+
+<div class="wifisett">
+<h2>Wi-Fi settings</h2>
+<input type="text" placeholder="Network name" class="apset"><br>
+<input type="password" placeholder="Password" class="apset"><br>
+<button class="apbut">Save</button>
+</div>
+
+<hr class="hrset">
+
+<div class="seq">
+<h2>Security Settings</h2>
+<p>Add username and password to login <sup>later*</sup></p>
+</div>
+
+<hr class="hrset">
+
+<div class="blackmode">
+<h2>Night mode</h2>
+<p class="app">
+  <label class="switch">
+      <input type="checkbox">
+      <span class="slider"> </span>
+    </label></p>
+
+    <hr class="hrset">
+
+<div class="logs">
+  <h2>Logs</h2>
+  <button class="apbut">Get</button>
+ </div>
+
+ <hr class="hrset">
+
+ <div class="info">
+   <h2>Manual mode</h2>
+   <p>To manage it manually, you need to connect via ssh:<br>
+    <i class="ssh">ssh root@192.168.1.3 -p 22</i><br>
+    Password: <i class="ssh">pisirenes</i>
+  </p>
+ </div>
+
+ <hr class="hrset">
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+     
+
+
+
+
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+<script type="text/javascript">
+var auto_refresh = setInterval(function () {
+  $("#h2").load(" #h2 "); 
+}, 1000);
+</script> -->
+</body>
+</html> 
+
+
+
