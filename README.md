@@ -17,7 +17,8 @@
 
 ### Modules
 + Wifi scanner
-+ etc...
++ Wifi AP
++ Settings
 
 ### Colloboration
 The project is free and open source, designed, to work for everyone. So every wish and dream should be implemented, do not be afraid to suggest something you want!
